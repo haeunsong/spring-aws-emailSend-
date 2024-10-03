@@ -26,6 +26,7 @@ public class Constrants {
     // QR 생성할 때 사용하는 것
     public static final String QR_SERVER = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=otpauth://totp/%s:%s?secret=%s&issuer=%s";
     public static final String INVITE_QR_TEMPLATE = "invite-opt-code";
+    // secret 을 사실 여기서 관리하면 안됨.
     public static final String SECRET = "SECRET";
 
 }
