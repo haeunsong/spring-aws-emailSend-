@@ -40,6 +40,10 @@ public class MySQLConfig {
 
     // TransactionManager 는 정말 필수적인 요소다.
     // Service 에서 사용하는 Manager
+    /* DataSource? : 애플리케이션과 데이터베이스 간의 연결을 관리하는 것. 데이터베이스 연결을 제공하는 객체.
+
+근데 아래 코드는 불필요하지 않나..? 뭐 언젠가 쓰려나.
+    */
     @Bean(name = "createAccountTransactionManager")
     public PlatformTransactionManager createAccountTransactionManager(DataSource dataSource) {
         DataSourceTransactionManager transactionManager = new DataSourceTransactionManager(dataSource);
