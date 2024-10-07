@@ -21,8 +21,8 @@ public class AccountController {
             summary="Email 에 OTP 전송",
             description = "Email에 대해서 OTP를 전송합니다."
     )
-    @GetMapping("/make-user/{email}")
-    public SendOtpResponse sendOTP(@RequestParam @Valid SendOtpRequest request) {
+    @PostMapping("/make-user")
+    public SendOtpResponse sendOTP(@RequestBody @Valid SendOtpRequest request) {
         return otpService.sendOtp(request);
     }
 }
