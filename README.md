@@ -12,6 +12,7 @@
 ![image](https://github.com/user-attachments/assets/7104d39e-703e-4f87-926e-190ba81f8056)
 - 이런식으로 SECRET 값도 노출되어있다. 그래서 누가 SECRET 값을 가져오면 누구든지 그걸 기반으로 서비스에 대한 QR 코드를 사용할 수 있다.
 - 그래서 이미지에 대한 오브젝트 관리는 S3 를 통해 관리되어야한다.
+---
 
 # AWS SES 이메일 전송 시스템
 
