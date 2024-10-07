@@ -6,11 +6,13 @@
 - [AWS] IAM
 
 
+
 ## 2. AWS 구성 방법
 AWS SES 를 Spring 프로젝트에서 사용하려면 IAM 을 통해 자격증명을 설정하고, AWS CLI 를 통해 템플릿을 연동해야 한다.
 SES 에서 먼저 jamy022576@gmail.com, jamy0225@naver.com 두 개의 이메일의 관한 자격증명을 얻었다.
 ![image](https://github.com/user-attachments/assets/d29a0fe1-b084-4301-a5af-04fc8be919a8)
 테스트 부분에서 jamy022576@gmail.com 유저가 jamy0225@naver.com 유저로 OTP 인증 이메일을 전송할 것이다.
+
 
 
 ### 2.1 IAM 구성
@@ -54,5 +56,6 @@ RequestBody 부분에 수신자 이메일을 넣어주고 [Execute] 를 눌러 �
 ## 4. 테스트 결과
 <img width="566" alt="image" src="https://github.com/user-attachments/assets/544b63ab-52ee-404e-8af1-12cef31fcaba">
 
-
+## 5. 참고
+https://www.inflearn.com/course/spring-%EC%9D%B4%EB%A9%94%EC%9D%BC-%EC%A0%84%EC%86%A1-%EC%8B%9C%EC%8A%A4%ED%85%9C/dashboard
 
