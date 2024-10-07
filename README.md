@@ -57,5 +57,4 @@ RequestBody 부분에 수신자 이메일을 넣어주고 [Execute] 를 눌러 �
 <img width="566" alt="image" src="https://github.com/user-attachments/assets/544b63ab-52ee-404e-8af1-12cef31fcaba">
 
 ## 5. 참고
-https://www.inflearn.com/course/spring-%EC%9D%B4%EB%A9%94%EC%9D%BC-%EC%A0%84%EC%86%A1-%EC%8B%9C%EC%8A%A4%ED%85%9C/dashboard
-
+인프런 - '대기업 서버 개발자가 알려주는 Spring, AWS 를 활용한 이메일 전송 시스템' (Hong)
