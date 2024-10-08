@@ -23,9 +23,13 @@ public class Constrants {
     public static final String OTP_ISSUER = "haeun"; // otp 를 제공하는 사람
     public static final String OTP_PASSWORD = "123456";
 
+    // 인증번호 생성시 사용
+    public static final String VERFICATION_NUMBER_TEMPLATE = "verification-otp-code";
+
     // QR 생성할 때 사용하는 것
     public static final String QR_SERVER = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=otpauth://totp/%s:%s?secret=%s&issuer=%s";
     public static final String INVITE_QR_TEMPLATE = "invite-opt-code";
+
     // secret 을 사실 여기서 관리하면 안됨.
     public static final String SECRET = "SECRET";
 

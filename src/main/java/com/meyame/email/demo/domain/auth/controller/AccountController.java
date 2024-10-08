@@ -17,6 +17,7 @@ public class AccountController {
 
     private final OTPService otpService;
 
+    // OTP QR Code 로 인증
     @Operation(
             summary="Email 에 OTP 전송",
             description = "Email에 대해서 OTP를 전송합니다."
@@ -24,5 +25,15 @@ public class AccountController {
     @PostMapping("/make-user")
     public SendOtpResponse sendOTP(@RequestBody @Valid SendOtpRequest request) {
         return otpService.sendOtp(request);
+    }
+
+    // 인증번호 6자리로 인증
+    @Operation(
+            summary = "Email 에 인증번호 6자리 전송",
+            description = "Email 로 인증을 위한 인증번호 6자리를 전송합니다."
+    )
+    @PostMapping("/send-code")
+    public SendOtpResponse sendOTPCode(@RequestBody @Valid SendOtpRequest request) {
+        return otpService.sendOTPCode(request);
     }
 }

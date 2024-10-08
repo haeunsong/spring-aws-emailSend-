@@ -8,11 +8,13 @@ import com.meyame.email.demo.domain.auth.model.response.SendOtpResponse;
 import com.meyame.email.demo.domain.repository.UserRepository;
 import com.meyame.email.demo.domain.repository.entity.User;
 import com.meyame.email.demo.security.OTP;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
+import java.util.Random;
 
 import static com.meyame.email.demo.common.constrants.Constrants.INVITE_QR_TEMPLATE;
 import static com.meyame.email.demo.common.constrants.Constrants.SECRET;
@@ -25,6 +27,7 @@ public class OTPService {
     private final UserRepository userRepository;
     private final MailService mailService;
 
+    // 이메일로 QR 코드 이미지를 보낸다.
     public SendOtpResponse sendOtp(SendOtpRequest request) {
 
         String email = request.email();
@@ -65,10 +68,46 @@ public class OTPService {
 
         }
 
-        // 2. @Transactional 을 활용한 Tx 처리
+    }
 
-        // 3. OTP 전송하기
+    // 6자리 인증번호 생성 메서드
+    private String generateOTPCode() {
+        Random random = new Random();
+        return String.format("%06d", random.nextInt(1000000));
+    }
 
+    // 이메일로 6자리 인증번호를 보낸다.
+    public SendOtpResponse sendOTPCode(@Valid SendOtpRequest request) {
+        // 먼저 request 에 담긴 email 을 뽑아온다.
+        String email = request.email();
+
+        // 들어오는 이메일이 유효한지 체크한다.
+        if(!EmailValidator.isValidEmail(email)) {
+            throw new CustomException(ErrorCode.NOT_VAILD_EMAIL_REQUEST);
+        }else {
+            User user = userRepository.findByEmail(email).orElseGet(() -> userRepository.save(
+                    User.builder()
+                            .email(email)
+                            .is_valid(false)
+                            .build()
+            ));
+            log.info("GET FROM DB {}", user.getEmail());
+
+            if(!user.getIs_valid()) {
+                // 인증번호 6자리 생성 후 전송
+                String otpCode = generateOTPCode();
+
+                // 생성된 인증번호를 AWS SES 에 담는다
+                Map<String, String> data = Map.of(
+                        "email",email,
+                        "sixOTPCode",otpCode
+                );
+
+                // 이메일 템플릿에 인증번호 포함하여 전송
+                mailService.sendTemplatedEmail("verification-otp-code",data,email);
+            }
+            return new SendOtpResponse(email);
+        }
 
     }
 }

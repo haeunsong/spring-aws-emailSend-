@@ -1,0 +1,7 @@
+{
+  "Template": {
+    "TemplateName": "verification-otp-code",
+    "SubjectPart": "[manna] 인증번호를 입력하세요!",
+    "HtmlPart":"<html>\n<body>\n<div>\n    <p>안녕하세요? {{email}}님! 아래 인증번호를 화면에 입력해주세요. </p>\n</div>\n<div>\n{{sixOTPCode}}\n</div>\n</body>\n</html>"
+  }
+}
