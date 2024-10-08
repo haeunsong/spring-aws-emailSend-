@@ -61,7 +61,7 @@ SES 에서 먼저 jamy022576@gmail.com, jamy0225@naver.com 두 개의 이메일�
 
 ## 3. Swagger 를 사용하여 테스트
 http://localhost:7002/swagger-ui/index.html#/Account%20API/sendOTP
-
+### 3.1 이메일로 QR 코드 전송
 <img width="1250" alt="image" src="https://github.com/user-attachments/assets/0a2d5109-940c-4368-aa5b-b4ed07ac2331">
 RequestBody 부분에 수신자 이메일을 넣어주고 [Execute] 를 눌러 실행한다.
 
@@ -69,8 +69,12 @@ RequestBody 부분에 수신자 이메일을 넣어주고 [Execute] 를 눌러 �
 <img width="1223" alt="image" src="https://github.com/user-attachments/assets/c89ee799-ebaf-4173-ac7d-b2c68ecb9727">
 <img width="384" alt="image" src="https://github.com/user-attachments/assets/80ae2d5f-54b7-4656-89bc-9fddd9029658">
 
+### 3.2 이메일로 6자리 인증코드 전송
+<img width="1247" alt="image" src="https://github.com/user-attachments/assets/fc163841-cf5c-40ba-893a-0c7c3837b6c1">
+
 ## 4. 테스트 결과
 <img width="566" alt="image" src="https://github.com/user-attachments/assets/544b63ab-52ee-404e-8af1-12cef31fcaba">
+<img width="565" alt="image" src="https://github.com/user-attachments/assets/7880c45d-4ee7-4382-aea9-7e9e51a77ed1">
 
 ## 5. 참고
 인프런 - '대기업 서버 개발자가 알려주는 Spring, AWS 를 활용한 이메일 전송 시스템' (Hong)
