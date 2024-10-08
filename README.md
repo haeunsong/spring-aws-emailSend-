@@ -46,6 +46,7 @@ SES 에서 먼저 jamy022576@gmail.com, jamy0225@naver.com 두 개의 이메일�
 
 ### 2.3 SES 템플릿 생성
 `$ aws ses create-template --cli-input-json file://template.json`
+(cf. template 삭제하기 `aws ses delete-template --template-name verification-otp-code`
 ```json
 {
   "Template": {
