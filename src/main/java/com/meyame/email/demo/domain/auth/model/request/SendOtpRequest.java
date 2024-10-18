@@ -15,3 +15,4 @@ public record SendOtpRequest(
         @Schema(description = "이메일")
         @NotBlank String email
 ){}
+
